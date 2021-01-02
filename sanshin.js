@@ -110,6 +110,8 @@ $("#form").submit(function () {
     pattern.push(Number(inputText));
   });
 
+  document.getElementById("table").append(inputText.join(" "));
+
   let ans = sanshin(pattern);
   // 表の動的作成
   makeTable(ans, "table");
