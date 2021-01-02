@@ -58,7 +58,7 @@ function sanshin(pattern) {
   }
 
   let ans = [];
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 3; i++) {
     ans[i] = [];
   }
 
@@ -68,6 +68,11 @@ function sanshin(pattern) {
     for (let j = 0; j < pattern.length; j++) {
       ans[1][i] = ans[1][i] + yuragi[j][i];
     }
+  }
+
+  // 3進数の情報をいれる
+  for (let i = 0; i < n; i++) {
+    ans[2][i] = ans[1][i].toString(3);
   }
   return ans;
 }
@@ -108,7 +113,6 @@ $("#form").submit(function () {
   let ans = sanshin(pattern);
   // 表の動的作成
   makeTable(ans, "table");
-
   return false;
 });
 
