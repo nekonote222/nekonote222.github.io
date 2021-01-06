@@ -19,10 +19,6 @@ function sanshin(pattern) {
 
   let yuragi = [];
 
-  for (let i = 0; i < 2; i++) {
-    yuragi[i] = [];
-  }
-
   for (let i = 0; i < pattern.length; i++) {
     let yuragi_sub = [];
     for (let j = 0; j < n; j++) {
@@ -53,22 +49,32 @@ function sanshin(pattern) {
   }
 
   let ans = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < pattern.length + 4; i++) {
     ans[i] = [];
   }
 
   for (let i = 0; i < n; i++) {
+    // 何番目の数かいれる
     ans[0][i] = i + 1;
-    ans[1][i] = 0;
-    for (let j = 0; j < pattern.length; j++) {
-      ans[1][i] = ans[1][i] + yuragi[j][i];
+
+    // ゆらぎの情報をいれる
+    for (let j = 1; j < pattern.length + 1; j++) {
+      ans[j][i] = yuragi[j - 1][i];
     }
+
+    // 何番目の数かいれる
+    ans[pattern.length + 1][i] = i + 1;
+
+    // 答えの情報を計算していれる
+    ans[pattern.length + 2][i] = 0;
+    for (let k = 0; k < pattern.length; k++) {
+      ans[pattern.length + 2][i] = ans[pattern.length + 2][i] + yuragi[k][i];
+    }
+
+    // 答えの3進数の表記をいれる
+    ans[pattern.length + 3][i] = ans[pattern.length + 2][i].toString(3);
   }
 
-  // 3進数の情報をいれる
-  for (let i = 0; i < n; i++) {
-    ans[2][i] = ans[1][i].toString(3);
-  }
   return ans;
 }
 // 表の動的作成
