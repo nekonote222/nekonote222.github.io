@@ -24,29 +24,24 @@ function sanshin(pattern) {
   }
 
   for (let i = 0; i < pattern.length; i++) {
-    count = 0;
-    count2 = 0;
     let yuragi_sub = [];
     for (let j = 0; j < n; j++) {
       if (j < start[i]) {
         yuragi_sub.push(0);
       } else {
-        if (count === pattern[i]) {
-          count = 0;
-          count2++;
-          if (count2 >= 3) {
-            count2 = 0;
-          }
+        switch (Math.floor((j - start[i] - 1) / pattern[i]) % 3) {
+          case 0:
+            yuragi_sub.push(pattern[i]);
+            break;
+          case 1:
+            yuragi_sub.push(-1 * pattern[i]);
+            break;
+          case 2:
+            yuragi_sub.push(0);
+            break;
+          default:
+            console.log("計算に不正があります");
         }
-        // count2は0~2までの値しか取らない
-        if (count2 === 0) {
-          yuragi_sub.push(pattern[i]);
-        } else if (count2 === 1) {
-          yuragi_sub.push(-1 * pattern[i]);
-        } else {
-          yuragi_sub.push(0);
-        }
-        count++;
       }
     }
 
