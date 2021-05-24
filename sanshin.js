@@ -158,7 +158,6 @@ $("#form").submit(function () {
   // 入力された値を文字列から数値に変える
   inputText.forEach((inputText) => {
     pattern.push(Number(inputText));
-    console.log(pattern)
   });
 
   document.getElementById("table").append(inputText.join(" "));
