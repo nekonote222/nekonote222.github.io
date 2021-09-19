@@ -60,7 +60,7 @@ function sanshin(pattern) {
   }
 
   let ans = [];
-  for (let i = 0; i < pattern.length + 6; i++) {
+  for (let i = 0; i < pattern.length + 7; i++) {
     ans[i] = [];
   }
 
@@ -100,6 +100,15 @@ function sanshin(pattern) {
       }
     }
     ans[pattern.length + 5][i] = sign_sum;
+
+    // 前の答えとの差(最初は0)
+    let sub;
+    if (i != 0) {
+      sub = ans[pattern.length + 2][i] - ans[pattern.length + 2][i - 1];
+    } else {
+      sub = 0;
+    }
+    ans[pattern.length + 6][i] = sub;
   }
 
   return ans;
