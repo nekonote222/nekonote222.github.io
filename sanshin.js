@@ -8,11 +8,11 @@ function sanshin(pattern) {
   for (let i = 1; i < pattern.length; i++) {
     total += Math.abs(pattern[i]);
     let n;
-    if(pattern[i - 1] == 0) {
+    if (pattern[i - 1] == 0) {
       n = 1;
       total++;
     } else {
-      n = Math.abs(pattern[i - 1])
+      n = Math.abs(pattern[i - 1]);
     }
     start.push(start[i - 1] + n);
   }
@@ -32,7 +32,7 @@ function sanshin(pattern) {
       if (j < start[i]) {
         yuragi_sub.push(0);
       } else {
-        if(pattern[i] == 0) {
+        if (pattern[i] == 0) {
           yuragi_sub.push(0);
           continue;
         }
@@ -60,7 +60,7 @@ function sanshin(pattern) {
   }
 
   let ans = [];
-  for (let i = 0; i < pattern.length + 5; i++) {
+  for (let i = 0; i < pattern.length + 6; i++) {
     ans[i] = [];
   }
 
@@ -87,6 +87,19 @@ function sanshin(pattern) {
 
     // 答えの平衡三進法の表記をいれる
     ans[pattern.length + 4][i] = balTer(ans[pattern.length + 2][i]);
+
+    // 符号の計算(ゆらぎがプラスの数なら1、0なら0、マイナスの数なら-1。それらの和)
+    let sign_sum = 0;
+    for (let j = 1; j < pattern.length + 1; j++) {
+      if (ans[j][i] > 0) {
+        sign_sum++;
+      } else if (ans[j][i] == 0) {
+        //
+      } else if (ans[j][i] < 0) {
+        sign_sum--;
+      }
+    }
+    ans[pattern.length + 5][i] = sign_sum;
   }
 
   return ans;
