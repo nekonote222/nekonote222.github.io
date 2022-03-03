@@ -35,19 +35,35 @@ function sanshin(pattern) {
         if (pattern[i] == 0) {
           yuragi_sub.push(0);
           continue;
-        }
-        switch (Math.floor((j - start[i] - 1) / pattern[i]) % 3) {
-          case 0:
-            yuragi_sub.push(pattern[i]);
-            break;
-          case 1:
-            yuragi_sub.push(-1 * pattern[i]);
-            break;
-          case 2:
-            yuragi_sub.push(0);
-            break;
-          default:
-            console.log("計算に不正があります");
+        } else if (pattern[i] > 0) {
+          switch (Math.floor((j - start[i] - 1) / pattern[i]) % 3) {
+            case 0:
+              yuragi_sub.push(pattern[i]);
+              break;
+            case 1:
+              yuragi_sub.push(-1 * pattern[i]);
+              break;
+            case 2:
+              yuragi_sub.push(0);
+              break;
+            default:
+              console.log("計算に不正があります");
+          }
+        } else {
+          // pattern[i] < 0　のとき
+          switch (Math.floor((j - start[i] - 1) / (-1 * pattern[i])) % 3) {
+            case 0:
+              yuragi_sub.push(pattern[i]);
+              break;
+            case 1:
+              yuragi_sub.push(-1 * pattern[i]);
+              break;
+            case 2:
+              yuragi_sub.push(0);
+              break;
+            default:
+              console.log("計算に不正があります");
+          }
         }
       }
     }
