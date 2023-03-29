@@ -7,14 +7,7 @@ function sanshin(pattern) {
   total += pattern[0];
   for (let i = 1; i < pattern.length; i++) {
     total += Math.abs(pattern[i]);
-    let n;
-    if (pattern[i - 1] == 0) {
-      n = 1;
-      total++;
-    } else {
-      n = Math.abs(pattern[i - 1]);
-    }
-    start.push(start[i - 1] + n);
+    start.push(start[i - 1] + Math.abs(pattern[i - 1]));
   }
 
   //console.log(`patternは${pattern}`);
