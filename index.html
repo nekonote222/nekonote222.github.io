@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天秤法</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="responsive.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数遊び</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="stylesheet" href="responsive.css" />
   </head>
   <body>
-    <header>
-    </header>
-      <h3 class="section-title">平衡三進法の考え方を使った数遊び</h3>
-      <form id="form" class="form">
-          <p id="error-message" class="error-message"></p>
-          <div>いくつかの正の整数を入力してください(半角スペースで区切ってください)</div>
-          <input id="text-form" class="text-form"></input>
-          <button type="submit" class="btn btn-submit">送信</button>
+    <div class="container">
+      <h1>数遊び</h1>
+      <p style="text-align: center">
+        以下に数列を入力してください。数字は半角スペースで区切って入力してください。
+      </p>
+
+      <!-- 入力フォーム -->
+      <form id="form">
+        <input
+          type="text"
+          id="text-form"
+          name="pattern"
+          placeholder="例: 1 -1 2 0 3"
+          required
+        />
+        <button type="submit">計算</button>
       </form>
-     <body>
-       <div id="table"></div>
-       <p class="title"></p>
-       <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-       <script type="text/javascript" src="sanshin.js"></script>
-     </body>
-    <footer>
-    </footer>
+
+      <button class="scroll-button" onclick="scrollToLeft()">左端へ移動</button>
+      <button class="scroll-button" onclick="scrollToRight()">
+        右端へ移動
+      </button>
+
+      <!-- 計算結果を表示するテー>ブル -->
+      <div id="tableContainer" style="overflow-x: auto"></div>
+    </div>
+    <script type="text/javascript" src="sanshin.js"></script>
   </body>
 </html>
