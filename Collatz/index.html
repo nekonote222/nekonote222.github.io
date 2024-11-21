@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>コラッツ予想と平衡三進法</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 style="text-align: center">コラッツ予想と平衡三進法</h1>
+    <div class="container">
+      <input
+        type="number"
+        id="maxValue"
+        placeholder="最大値を入力"
+        min="1"
+        value="300"
+      />
+      <button onclick="generateTable()">生成する</button>
+    </div>
+    <table id="collatzTable">
+      <thead>
+        <tr>
+          <th>開始値</th>
+          <th>コラッツ予想の結果</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="collatz.js"></script>
+  </body>
+</html>
