@@ -1,0 +1,57 @@
+/* 大きな表のスタイル */
+#largeTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+#largeTable th,
+#largeTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  white-space: nowrap; /* テキストが折り返さないように設定 */
+  writing-mode: horizontal-tb; /* 横書きに変更 */
+}
+
+#largeTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#largeTable tr:hover {
+  background-color: #e0e0e0;
+}
+
+#largeTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4caf50;
+  color: white;
+}
+
+/* 小さな表のスタイル */
+td table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td table th,
+td table td {
+  border: 1px solid #aaa;
+  padding: 4px;
+  font-size: 14px;
+}
+
+td table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+td table tr:hover {
+  background-color: #dcdcdc;
+}
+
+td table th {
+  background-color: #6c757d;
+  color: white;
+}
